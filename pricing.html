@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Calculator — Grand River Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Grand River Tech Logo">
+                <span class="logo-text">Grand River Tech</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="index.html#industries">Industries</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Pricing Calculator -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-label mono">PRICING CALCULATOR</span>
+            <h1>Calculate Your <span class="hero-highlight">IT Costs</span></h1>
+            <p>Get an instant estimate based on your enrolled devices and services.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="pricing-container">
+            <div class="pricing-layout">
+                <div class="pricing-options">
+                    <!-- Endpoint Protection -->
+                    <div class="calculator-card">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                            <div>
+                                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Endpoint Protection</h3>
+                                <p style="color: var(--gray-600); font-size: 0.9375rem;">$2.76 per device • $50 minimum</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="endpoint-toggle" onchange="updateCalculator()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="device-input-group">
+                            <label for="endpoint-devices">Number of Devices</label>
+                            <input type="number" id="endpoint-devices" class="device-input" min="0" value="0" onchange="updateCalculator()">
+                        </div>
+                    </div>
+
+                    <!-- Network Management -->
+                    <div class="calculator-card">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                            <div>
+                                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Network Management</h3>
+                                <p style="color: var(--gray-600); font-size: 0.9375rem;">$3.79 per device • $50 minimum</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="network-toggle" onchange="updateCalculator()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="device-input-group">
+                            <label for="network-devices">Number of Devices</label>
+                            <input type="number" id="network-devices" class="device-input" min="0" value="0" onchange="updateCalculator()">
+                        </div>
+                    </div>
+
+                    <!-- IOT Device Management -->
+                    <div class="calculator-card">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                            <div>
+                                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">IOT Device Management</h3>
+                                <p style="color: var(--gray-600); font-size: 0.9375rem;">$0.25 per device • No minimum</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="iot-toggle" onchange="updateCalculator()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="device-input-group">
+                            <label for="iot-devices">Number of Devices</label>
+                            <input type="number" id="iot-devices" class="device-input" min="0" value="0" onchange="updateCalculator()">
+                        </div>
+                    </div>
+
+                    <!-- Camera System -->
+                    <div class="calculator-card">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                            <div>
+                                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Camera System</h3>
+                                <p style="color: var(--gray-600); font-size: 0.9375rem;">$0.93 per camera • $25 minimum</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="camera-toggle" onchange="updateCalculator()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="device-input-group">
+                            <label for="camera-devices">Number of Cameras</label>
+                            <input type="number" id="camera-devices" class="device-input" min="0" value="0" onchange="updateCalculator()">
+                        </div>
+                    </div>
+
+                    <!-- Phone System -->
+                    <div class="calculator-card">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div>
+                                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Phone System Management</h3>
+                                <p style="color: var(--gray-600); font-size: 0.9375rem;">$90 per month</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="phone-toggle" onchange="updateCalculator()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- NAS Management -->
+                    <div class="calculator-card">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div>
+                                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">NAS Management</h3>
+                                <p style="color: var(--gray-600); font-size: 0.9375rem;">$25 per month</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="nas-toggle" onchange="updateCalculator()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Sidebar -->
+                <div>
+                    <div class="pricing-summary">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Your Estimate</h3>
+                        
+                        <div id="summary-items">
+                            <p style="opacity: 0.6; text-align: center; padding: 2rem 0;">Select services to see pricing</p>
+                        </div>
+
+                        <div class="summary-total-section">
+                            <div class="summary-total-row">
+                                <span style="font-size: 1rem; opacity: 0.8;">Monthly Total</span>
+                                <span id="monthly-total" style="font-size: 2.5rem; font-weight: 700;">$0</span>
+                            </div>
+                            <div class="summary-total-row" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                                <span style="font-size: 1rem; opacity: 0.8;">Yearly Total</span>
+                                <span id="yearly-total" style="font-size: 2.5rem; font-weight: 700;">$0</span>
+                            </div>
+                        </div>
+
+                        <a href="https://form.jotform.com/260384969488175" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 2rem; display: block;">Book Appointment</a>
+                        <a href="index.html#contact" class="btn btn-secondary" style="width: 100%; text-align: center; margin-top: 1rem; display: block; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">Contact Us</a>
+                        <p style="font-size: 0.875rem; opacity: 0.7; margin-top: 1rem; text-align: center;">Estimate only. Final pricing may vary based on specific needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Grand River Tech Logo">
+                    <span class="footer-logo-text">Grand River Tech</span>
+                </div>
+                <p>Your trusted Grand Rapids IT partner for comprehensive managed technology solutions.</p>
+            </div>
+            <div class="footer-section">
+                <h4>SERVICES</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#services">Network Management</a></li>
+                    <li><a href="index.html#services">Security Cameras</a></li>
+                    <li><a href="index.html#services">Point of Sale</a></li>
+                    <li><a href="index.html#services">Device Repair</a></li>
+                    <li><a href="index.html#services">Phone Systems</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>INDUSTRIES</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#industries">Education</a></li>
+                    <li><a href="index.html#industries">Healthcare</a></li>
+                    <li><a href="index.html#industries">Manufacturing</a></li>
+                    <li><a href="index.html#industries">Non-Profit</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>COMPANY</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="pricing.html">Pricing Calculator</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="https://form.jotform.com/260384969488175" target="_blank">Book Appointment</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Grand River Tech. All Rights Reserved.</span>
+            <div>
+                <a href="privacy.html" style="color: inherit; opacity: 0.6; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a>
+                <span style="opacity: 0.4;">•</span>
+                <a href="terms.html" style="color: inherit; opacity: 0.6; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a>
+            </div>
+            <span class="mono">WALKER, MI 49534</span>
+        </div>
+    </footer>
+
+    <script src="pricing.js"></script>
+</body>
+</html>
